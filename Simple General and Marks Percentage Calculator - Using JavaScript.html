@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple General and Marks Percentage Calculator - Using JavaScript</title>
+
+    <style>
+        * {
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: large;
+            text-align: center;
+            margin: 2%;
+        }
+
+        .textBox input {
+            height: 4vh;
+        }
+
+        span {
+            display: block;
+        }
+
+        button {
+            height: 5vh;
+            width: 12%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="generalCalculator">
+
+        <h1> Simple General Calculator - Using JavaScript </h1>
+
+        <div class="textBox">
+            <label for="num1">Value 1: </label>
+            <input type="text" name="num1" id="num1">
+
+            <label for="num2">Value 2: </label>
+            <input type="text" name="num2" id="num2">
+
+            <span id="result"></span>
+        </div>
+
+        <button id="addition" onclick="addition()">Addition</button>
+        <button id="subtraction" onclick="subtraction()">Subtraction</button>
+        <button id="multiply" onclick="multiply()">Multiply</button>
+        <button id="division" onclick="division()">Division</button>
+        <button id="percentage" onclick="percentage()">Percentage</button>
+
+    </section>
+
+    <hr>
+
+    <section class="marksCalculator">
+
+        <h1> Simple Marks Percentage Calculator - Using JavaScript </h1>
+
+        <div class="textBox">
+            <label for="obtMarks">Enter Obtained Marks: </label>
+            <input type="text" name="obtMarks" id="obtMarks">
+
+            <label for="totalMarks">Enter Total Marks: </label>
+            <input type="text" name="totalMarks" id="totalMarks">
+
+            <span id="marksPercentage"></span>
+            <span id="marksGrade"></span>
+            <span id="marksResult"></span>
+        </div>
+
+        <button id="result" onclick="marksResult()">Result</button>
+
+    </section>
+
+    <hr>
+
+    <script>
+        // Simple General Calculator:
+        num1 = document.getElementById("num1").value;
+
+        num2 = document.getElementById("num2").value;
+
+        let result;
+
+        function addition() {
+            result = parseInt(num1) + parseInt(num2);
+            document.getElementById("result").innerHTML = "Result (Addition): " + result;
+        };
+
+        function subtraction() {
+            result = parseInt(num1) - parseInt(num2);
+            document.getElementById("result").innerHTML = "Result (Subtraction): " + result;
+        };
+
+        function multiply() {
+            result = parseInt(num1) * parseInt(num2);
+            document.getElementById("result").innerHTML = "Result (Multiplication): " + result;
+        };
+
+        function division() {
+            result = parseInt(num1) / parseInt(num2);
+            document.getElementById("result").innerHTML = "Result (Division): " + result;
+        };
+
+        function percentage() {
+            result = parseInt(num1) / parseInt(num2) * 100;
+            document.getElementById("result").innerHTML = "Result (Percentage): " + result;
+        };
+
+        // Marks Percentage Calculator:
+
+        obtMarks = document.getElementById("obtMarks").value;
+
+        totalMarks = document.getElementById("totalMarks").value;
+
+        marksPercentage = document.getElementById("marksPercentage");
+
+        marksGrade = document.getElementById("marksGrade");
+
+        marksResultt = document.getElementById("marksResult");
+
+        function marksResult() {
+
+            // Calculating Percentage:
+            let resultPercentage = obtMarks / totalMarks * 100;
+
+            marksPercentage.innerHTML = "Percentage: " + resultPercentage;
+
+            // Calculating Grades Based On Marks:
+            if (obtMarks > 680) {
+                marksGrade.innerHTML = "Grade: A-1";
+            }
+
+            else if (obtMarks >= 595 && obtMarks <= 679) {
+                marksGrade.innerHTML = "Grade: A";
+            }
+
+            else if (obtMarks >= 510 && obtMarks <= 594) {
+                marksGrade.innerHTML = "Grade: B";
+            }
+
+            else if (obtMarks >= 425 && obtMarks <= 509) {
+                marksGrade.innerHTML = "Grade: C";
+            }
+
+            else if (obtMarks >= 340 && obtMarks <= 424) {
+                marksGrade.innerHTML = "Grade: D";
+            }
+
+            else if (obtMarks >= 280 && obtMarks <= 339) {
+                marksGrade.innerHTML = "Grade: E";
+            }
+
+            else {
+                marksGrade.innerHTML = "Grade: Null";
+            }
+
+            // Calculating Result Based On Marks:
+            if (obtMarks >= 280) {
+                marksResultt.innerHTML = "Result: Pass";
+            }
+
+            else {
+                marksResultt.innerHTML = "Result: Fail";
+            }
+        }
+
+    </script>
+</body>
+
+</html>
